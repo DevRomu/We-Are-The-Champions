@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  gap: 15px;
+  font-family: "Josefin Sans", sans-serif;
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(27, 25, 36, 1);
+  text-align: center;
+  user-select: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 375px;
+  margin: 30px auto;
+}
+
+.freddie {
+  width: 90px;
+  margin: 0 auto;
+}
+
+#publish {
+  border-radius: 9px;
+  border: 0;
+  padding: 15px;
+  font-size: 25px;
+  font-weight: 800;
+  color: rgba(4, 19, 28, 1);
+  background-color: rgba(40, 169, 241, 1);
+  text-align: center;
+  border: none;
+}
+
+#publish:hover {
+  background-color: rgb(12, 62, 88);
+}
+
+input {
+  color: rgba(143, 143, 143, 1);
+  background-color: rgba(68, 64, 89, 1);
+}
+
+h1,
+h2 {
+  font-weight: 600;
+}
