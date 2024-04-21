@@ -4,39 +4,26 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
     />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>We are the Chapmions</title>
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <div class="block">
-      <div class="container">
-        <img class="freddie" src="./assets/freddie.png" />
-        <h2 class="title">We Are The Champions</h2>
-        <input
-          type="text"
-          id="input-field"
-          placeholder="Write your endorsement here"
-        />
-        <button id="publish">Publish</button>
-        <h2>- Endorsements -</h2>
-      </div>
+    <div class="container">
+      <img class="freddie" src="./assets/freddie.png" />
+      <h2 class="title">We Are The Champions</h2>
+      <input
+        type="text"
+        id="input-field"
+        placeholder="Write your endorsement here"
+      />
+      <button id="publish">Publish</button>
+      <h2>- Endorsements -</h2>
+      <ul id="comment-lists"></ul>
     </div>
-    <div class="comments">
-      <ul class="comment-lists">
-        <li>
-          Hi Bob! Your React Router course is so good. The students are going to
-          LOVE IT. I’m so excited for the launch 🔥 Per
-        </li>
-        <li>
-          Abdellah! That transcription feature you completed for Scrimba 3.0 is
-          amazing. I know you’ve been working hard on it for several months now.
-          👏👏👏 Really good work 🙌 From Sindre
-        </li>
-        <li>
-          Leanne! Thank you so much for helping me with the March accounting.
-          Saved so much time because of you! 💜 Frode
-        </li>
-      </ul>
-    </div>
-    <script src="index.js"></script>
+    <script src="index.js" type="module"></script>
   </body>
 </html>
