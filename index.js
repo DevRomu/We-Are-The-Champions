@@ -17,15 +17,7 @@ const endorsementsListDB = ref(db, "Endorsements");
 
 const inputFieldEl = document.getElementById("input-field");
 const addButtonEl = document.getElementById("publish");
-const endorsementsListsEL = document.getElementById("comment-lists");
-
-function clearInputFieldEl() {
-  inputFieldEl.value = "";
-}
-
-function clearEndorsementsEl() {
-  endorsementsListsEL.innerHTML = "";
-}
+const endorsementsListsEL = document.getElementById("comments");
 
 addButtonEl.addEventListener("click", function () {
   let inputValue = inputFieldEl.value;
@@ -37,7 +29,7 @@ addButtonEl.addEventListener("click", function () {
 });
 
 onValue(endorsementsListDB, function (snapshot) {
-  let endorsementsArray = Object.entries(snapshot.val());
+  let endorsementsArray = Object.values(snapshot.val());
 
   //   for (let i = 0; i < endorsementsArray.length; i++) {
   //     let currentEndorsement = endorsementsArray[i];
@@ -54,8 +46,16 @@ onValue(endorsementsListDB, function (snapshot) {
   }
 });
 
+function clearInputFieldEl() {
+  inputFieldEl.value = "";
+}
+
+function clearEndorsementsEl() {
+  endorsementsListsEL.innerHTML = "";
+}
+
 function appendEndorsementsList(endorsements) {
-  endorsementsListsEL.innerHTML += `<li>${itemValue}</li>`;
+  endorsementsListsEL.innerHTML += `<li>${endorsements}</li>`;
   //   let endorsementsListID = endorsements[0];
   //   let endorsementsListValue = endorsements[1];
   //   let endorsementsListEl = document.createElement("li");
