@@ -29,20 +29,16 @@ addButtonEl.addEventListener("click", function () {
 });
 
 onValue(endorsementsListDB, function (snapshot) {
-  let endorsementsArray = Object.values(snapshot.val());
-
-  //   for (let i = 0; i < endorsementsArray.length; i++) {
-  //     let currentEndorsement = endorsementsArray[i];
-  //     let currentEndorsementID = currentEndorsement[0];
-  //     let currentEndorsementValue = currentEndorsement[1];
-
-  //     appendEndorsementsList(currentEndorsement);
-  //   }
+  let endorsementsArray = Object.entries(snapshot.val());
 
   clearEndorsementsEl();
 
   for (let i = 0; i < endorsementsArray.length; i++) {
-    appendEndorsementsList(endorsementsArray[i]);
+    let currentEndorsement = endorsementsArray[i];
+    let currentEndorsementID = currentEndorsement[0];
+    let currentEndorsementValue = currentEndorsement[1];
+
+    appendEndorsementsList(currentEndorsement);
   }
 });
 
@@ -54,15 +50,18 @@ function clearEndorsementsEl() {
   endorsementsListsEL.innerHTML = "";
 }
 
-function appendEndorsementsList(endorsements) {
-  endorsementsListsEL.innerHTML += `<li>${endorsements}</li>`;
-  //   let endorsementsListID = endorsements[0];
-  //   let endorsementsListValue = endorsements[1];
-  //   let endorsementsListEl = document.createElement("li");
-  //   endorsementsListEl.textContent = endorsementsListValue;
-  //   endorsementsListEl.addEventListener("click", function () {
-  //     let extractionsListElInDB = ref(db, `Endorsements/${endorsementsListID}`);
-  //     remove(extractionsListElInDB);
-  //   });
-  //   endorsementsListsEL.appendChild(endorsementsListEl);
+function appendEndorsementsList(endorsement) {
+  let currentEndorsementID = endorsement[0];
+  let currentEndorsementValue = endorsement[1];
+
+  let endorsementEl = document.createElement("li");
+  endorsementEl.textContent = currentEndorsementValue;
+
+  let endorsementsListsEL = document.getElementById("comments"); // replace 'your-ul-id' with the actual ID of your ul element
+  endorsementsListsEL.appendChild(endorsementEl);
+
+  endorsementEl.addEventListener("click", function () {
+    let exactLoactionInDB = ref(db, `Endorsements/${currentEndorsementID}`);
+    remove(exactLoactionInDB);
+  });
 }
