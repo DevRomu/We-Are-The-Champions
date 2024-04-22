@@ -29,16 +29,20 @@ addButtonEl.addEventListener("click", function () {
 });
 
 onValue(endorsementsListDB, function (snapshot) {
-  let endorsementsArray = Object.entries(snapshot.val());
+  if (snapshot.exists()) {
+    let endorsementsArray = Object.entries(snapshot.val());
 
-  clearEndorsementsEl();
+    clearEndorsementsEl();
 
-  for (let i = 0; i < endorsementsArray.length; i++) {
-    let currentEndorsement = endorsementsArray[i];
-    let currentEndorsementID = currentEndorsement[0];
-    let currentEndorsementValue = currentEndorsement[1];
+    for (let i = 0; i < endorsementsArray.length; i++) {
+      let currentEndorsement = endorsementsArray[i];
+      let currentEndorsementID = currentEndorsement[0];
+      let currentEndorsementValue = currentEndorsement[1];
 
-    appendEndorsementsList(currentEndorsement);
+      appendEndorsementsList(currentEndorsement);
+    }
+  } else {
+    endorsementsListsEL.innerHTML = `<li>No endorsements yet</li>`;
   }
 });
 
